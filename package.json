@@ -17,6 +17,7 @@
     "preci": "rm -fr node_modules",
     "ci": "yarn install --immutable"
   },
+  "precommit.silent": true,
   "pre-commit": [
     "lint",
     "format"
