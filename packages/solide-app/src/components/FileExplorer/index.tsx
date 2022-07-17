@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-type Props = {}
+type Props = {};
 
 const FileExplorer = (props: Props) => {
-  return (
-    <div>FileExplorer</div>
-  )
-}
+  return <div>FileExplorer</div>;
+};
 
-export default FileExplorer
+export default FileExplorer;
