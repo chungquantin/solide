@@ -1,18 +1,37 @@
 {
-  "name": "solana-editor",
+  "name": "solide",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "description": "Solana Editor | Develop smart contract easily",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:server": "cargo run -p server",
-    "lint": "",
-    "format": "",
-    "start:client": ""
+    "start:client": "lerna run --scope @solide/react-ui start",
+    "build": "npx lerna run build",
+    "build:server": "cargo build",
+    "build:client": "lerna run --scope @solide/react-ui build --stream",
+    "lint": "npx eslint --debug 'packages/**/*.{js,jsx,ts,tsx}'",
+    "format": "prettier --config .prettierrc.js 'packages/**/*.{js,jsx,ts,tsx}' --write",
+    "preci": "rm -fr node_modules",
+    "ci": "yarn install --immutable"
   },
-  "pre-commit": [],
+  "pre-commit": [
+    "lint",
+    "format"
+  ],
   "devDependencies": {
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
-    "lerna": "^5.1.8"
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.0.0",
+    "eslint-config-react-app": "^7.0.1",
+    "lerna": "^5.1.4",
+    "nx": "^14.4.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.1.2"
   }
 }
