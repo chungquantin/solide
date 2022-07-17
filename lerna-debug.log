@@ -1,0 +1,13 @@
+0 silly argv {
+0 silly argv   _: [ 'run' ],
+0 silly argv   scope: '@solide/react-ui',
+0 silly argv   lernaVersion: '5.1.8',
+0 silly argv   '$0': '/Users/chungquantin/Developer/solana-summer-camp/node_modules/.bin/lerna',
+0 silly argv   script: 'start'
+0 silly argv }
+1 notice cli v5.1.8
+2 verbose rootPath /Users/chungquantin/Developer/solana-summer-camp
+3 info versioning independent
+4 notice filter including "@solide/react-ui"
+5 info filter [ '@solide/react-ui' ]
+6 error
