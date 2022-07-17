@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import { blueGrey, orange, grey } from '@mui/material/colors';
+import { orange, grey } from '@mui/material/colors';
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -21,7 +21,7 @@ const theme = createTheme({
       main: grey[900],
     },
     secondary: {
-      main: grey[800],
+      main: grey[900],
     },
     text: {
       primary: grey[100],

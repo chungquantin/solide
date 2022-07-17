@@ -18,7 +18,7 @@ module.exports = function (config, env) {
     plugins: [
       ...config.plugins,
       new ProvidePlugin({
-        process: 'process/browser',
+        process: 'process/browser.js',
       }),
     ],
     resolve: {

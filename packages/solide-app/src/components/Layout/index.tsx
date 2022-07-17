@@ -3,7 +3,7 @@ import { Box, Grid, ListItemIcon, MenuItem, MenuList, Paper, styled, Tooltip } f
 import ResponsiveAppBar from '../AppBar';
 import { AppsOutlined, FolderCopyOutlined, HomeOutlined } from '@mui/icons-material';
 import { theme } from '../../utils/theme';
-import { orange } from '@mui/material/colors';
+import { common, orange } from '@mui/material/colors';
 import { selectMenu, SideMenuItem, switchMenu } from '../../core/redux/slices/menuSlice';
 import { useAppDispatch, useAppSelector } from '../../core/redux/app/hooks';
 import FileExplorer from '../FileExplorer';
@@ -41,19 +41,19 @@ const sideMenuItems = [
   {
     menuId: SideMenuItem.Home,
     name: 'Project Hub',
-    icon: <HomeOutlined fontSize="small" />,
+    icon: <HomeOutlined fontSize="small" style={{ marginLeft: 5 }} />,
     path: 'home',
   },
   {
     menuId: SideMenuItem.Files,
     name: 'Files',
-    icon: <FolderCopyOutlined fontSize="small" />,
+    icon: <FolderCopyOutlined fontSize="small" style={{ marginLeft: 5 }} />,
     path: 'projects',
   },
   {
     menuId: SideMenuItem.Plugins,
     name: 'Plugins',
-    icon: <AppsOutlined fontSize="small" />,
+    icon: <AppsOutlined fontSize="small" style={{ marginLeft: 5 }} />,
     path: 'plugins',
   },
 ];
@@ -74,7 +74,7 @@ const Layout = (props: Props) => {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container>
           <Grid item xs={0.5}>
-            <Item style={{ backgroundColor: theme.palette.primary.main }}>
+            <Item style={{ backgroundColor: common.black }}>
               <MenuList>
                 {sideMenuItems.map(item => (
                   <Tooltip key={item.menuId} title={item.name} placement="right-start">
@@ -97,13 +97,13 @@ const Layout = (props: Props) => {
           </Grid>
           {value === SideMenuItem.Files && (
             <Grid item xs={2}>
-              <Item style={{ backgroundColor: theme.palette.secondary.dark }}>
+              <Item style={{ backgroundColor: theme.palette.secondary.main }}>
                 <FileExplorer />
               </Item>
             </Grid>
           )}
           <Grid item xs={value === SideMenuItem.Files ? 9.5 : 11.5}>
-            <Item style={{ backgroundColor: theme.palette.secondary.main }}>
+            <Item style={{ backgroundColor: theme.palette.secondary.dark }}>
               <div>{props.children}</div>
             </Item>
           </Grid>
