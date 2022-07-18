@@ -37,3 +37,19 @@
     transform: translateY(0px);
   }
 }
+
+.css-2j08k5-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+  background-color: black !important;
+}
+
+.action-list-item:hover {
+  color: rgb(255, 145, 0) !important;
+}
+
+.MuiTreeItem-label {
+  font-size: 12px !important;
+}
+
+.css-g0jugy-MuiCollapse-root-MuiTreeItem-group {
+  margin-left: 10px !important;
+}

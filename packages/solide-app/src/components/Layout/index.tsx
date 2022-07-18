@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Grid, ListItemIcon, MenuItem, MenuList, Paper, styled, Tooltip } from '@mui/material';
 import ResponsiveAppBar from '../AppBar';
 import { AppsOutlined, FolderCopyOutlined, HomeOutlined } from '@mui/icons-material';
 import { theme } from '../../utils/theme';
-import { common, orange } from '@mui/material/colors';
+import { common, grey, orange } from '@mui/material/colors';
 import { selectMenu, SideMenuItem, switchMenu } from '../../core/redux/slices/menuSlice';
 import { useAppDispatch, useAppSelector } from '../../core/redux/app/hooks';
 import FileExplorer from '../FileExplorer';
@@ -68,6 +68,17 @@ const Layout = (props: Props) => {
     history.push(sideMenuItem.path);
   };
 
+  useEffect(() => {
+    const path = history.location.pathname;
+    if (path.includes('projects')) {
+      dispatch(switchMenu({ name: 'Files', value: SideMenuItem.Files }));
+    } else if (path.includes('plugins')) {
+      dispatch(switchMenu({ name: 'Plugins', value: SideMenuItem.Plugins }));
+    } else {
+      dispatch(switchMenu({ name: 'Project Hub', value: SideMenuItem.Home }));
+    }
+  }, [history.location.pathname, dispatch]);
+
   return (
     <div>
       <ResponsiveAppBar />
@@ -97,7 +108,11 @@ const Layout = (props: Props) => {
           </Grid>
           {value === SideMenuItem.Files && (
             <Grid item xs={2}>
-              <Item style={{ backgroundColor: theme.palette.secondary.main }}>
+              <Item
+                style={{
+                  backgroundColor: theme.palette.secondary.main,
+                  borderRight: `1.5px solid ${grey[800]}`,
+                }}>
                 <FileExplorer />
               </Item>
             </Grid>

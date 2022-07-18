@@ -6,6 +6,8 @@ export const extensionLanguageMap = {
   json: 'json',
   yml: 'yaml',
   yaml: 'yaml',
+  txt: 'text',
+  '': '',
 };
 
 export const languageExtensionMap = {
