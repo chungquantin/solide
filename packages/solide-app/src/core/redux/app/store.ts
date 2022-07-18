@@ -1,10 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import { menuReducer, workspaceReducer } from '../slices/reducer';
+import { menuReducer, workspaceReducer, connectionReducer } from '../slices/reducer';
 
 export const store = configureStore({
   reducer: {
     menu: menuReducer,
     workspace: workspaceReducer,
+    connection: connectionReducer,
   },
 });
 

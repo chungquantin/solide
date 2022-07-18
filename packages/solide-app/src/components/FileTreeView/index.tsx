@@ -68,12 +68,13 @@ export default function FileTreeView() {
     return files.map<React.ReactNode>(file =>
       typeof file.content == 'string' ? (
         <StyledTreeItem
+          key={file.id}
           nodeId={file.id}
           onClick={() => handleFileClick(file)}
           label={formatFileName(file)}
         />
       ) : (
-        <StyledTreeItem nodeId={file.id} label={formatFileName(file)}>
+        <StyledTreeItem key={file.id} nodeId={file.id} label={formatFileName(file)}>
           {renderTreeView(file.content)}
         </StyledTreeItem>
       )

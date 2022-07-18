@@ -1,7 +1,7 @@
 import Editor from '@monaco-editor/react';
 import { CloseOutlined } from '@mui/icons-material';
 import { Box, Tab, Tabs } from '@mui/material';
-import { grey, orange } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 import React, { useEffect, useState } from 'react';
 import { extensionLanguageMap } from '../../constants/languageExtensionMap';
 import { useAppDispatch, useAppSelector } from '../../core/redux/app/hooks';
@@ -39,7 +39,7 @@ const CodeEditor = (props: Props) => {
   return (
     <React.Fragment>
       <Box>
-        <Tabs defaultValue={1} onChange={() => {}} variant="scrollable" scrollButtons="auto">
+        <Tabs onChange={() => {}} variant="scrollable" scrollButtons="auto">
           {openedFiles.map(file => (
             <Tab
               defaultChecked

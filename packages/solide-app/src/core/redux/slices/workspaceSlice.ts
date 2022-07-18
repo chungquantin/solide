@@ -5,7 +5,7 @@ import { FileType, WorkspaceState, WorkspaceType } from '../../../types';
 
 const initialState: WorkspaceState = {
   selectedWorkspace: WORKSPACES[0],
-  workspaces: WORKSPACES,
+  workspaces: [],
   openedFiles: [],
   selectedFile: null,
   status: 'idle',
@@ -42,7 +42,10 @@ export const workspaceSlice = createSlice({
     setSelectedWorkspace: (state, action: PayloadAction<WorkspaceType>) => {
       state.selectedWorkspace = action.payload;
     },
-    addWorkspace: (state, action: PayloadAction<WorkspaceType[]>) => {
+    addWorkspace: (state, action: PayloadAction<WorkspaceType>) => {
+      state.workspaces.push(action.payload);
+    },
+    setWorkspaces: (state, action: PayloadAction<WorkspaceType[]>) => {
       state.workspaces = action.payload;
     },
     removeWorkspace: (state, action: PayloadAction<WorkspaceType>) => {
@@ -52,6 +55,7 @@ export const workspaceSlice = createSlice({
 });
 
 export const {
+  setWorkspaces,
   addWorkspace,
   openNewFile,
   removeFile,
