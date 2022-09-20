@@ -14,7 +14,7 @@ function App() {
     const initDb = async () => {
       setLoading(true);
       await WorkspaceDbService.initDatabase();
-      await WorkspaceDbService.initDefaultWorkspaces();
+      // await WorkspaceDbService.initDefaultWorkspaces();
       setLoading(false);
     };
     initDb();

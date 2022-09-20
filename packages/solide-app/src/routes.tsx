@@ -1,6 +1,6 @@
 import { StaticContext } from 'react-router';
 import { Route, Switch, RouteComponentProps } from 'react-router-dom';
-import { PluginsView } from './views';
+import { PluginsView, StudioView } from './views';
 import HomeView from './views/HomeView';
 import ProjectView from './views/ProjectView';
 
@@ -27,6 +27,11 @@ export const routeList: CustomRouteProps[] = [
     isExact: true,
     path: '/plugins',
     component: () => <PluginsView />,
+  },
+  {
+    isExact: true,
+    path: '/studio',
+    component: () => <StudioView />,
   },
 ];
 

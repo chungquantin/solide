@@ -68,6 +68,7 @@ export default class WorkspaceDbService {
 
   static async getWorkspaceById(workspaceId: number): Promise<WorkspaceType> {
     const db = await WorkspaceDbService.getDatabase();
+    console.log(db)
     const workspaceObjectStore = db.transaction('workspaces', 'readonly').objectStore('workspaces');
     return new Promise((resolve, reject) => {
       const handleSuccessGetWorkspace = (event: Event) => {

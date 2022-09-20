@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Box, Grid, ListItemIcon, MenuItem, MenuList, Paper, styled, Tooltip } from '@mui/material';
 import ResponsiveAppBar from '../AppBar';
-import { AppsOutlined, FolderCopyOutlined, HomeOutlined } from '@mui/icons-material';
+import { AppsOutlined, FolderCopyOutlined, HomeOutlined, PlayArrowOutlined } from '@mui/icons-material';
 import { theme } from '../../utils/theme';
 import { common, grey, orange } from '@mui/material/colors';
 import { selectMenu, SideMenuItem, switchMenu } from '../../core/redux/slices/menuSlice';
@@ -56,6 +56,12 @@ const sideMenuItems = [
     icon: <AppsOutlined fontSize="small" style={{ marginLeft: 5 }} />,
     path: 'plugins',
   },
+  {
+    menuId: SideMenuItem.Studio,
+    name: 'Studio',
+    icon: <PlayArrowOutlined fontSize="small" style={{ marginLeft: 5 }} />,
+    path: 'studio',
+  },
 ];
 
 const Layout = (props: Props) => {
@@ -74,6 +80,8 @@ const Layout = (props: Props) => {
       dispatch(switchMenu({ name: 'Files', value: SideMenuItem.Files }));
     } else if (path.includes('plugins')) {
       dispatch(switchMenu({ name: 'Plugins', value: SideMenuItem.Plugins }));
+    } else if (path.includes("studio")) {
+      dispatch(switchMenu({ name: 'Nocode Studio', value: SideMenuItem.Studio }));
     } else {
       dispatch(switchMenu({ name: 'Project Hub', value: SideMenuItem.Home }));
     }

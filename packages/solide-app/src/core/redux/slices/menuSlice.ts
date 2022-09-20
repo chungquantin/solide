@@ -6,6 +6,7 @@ export enum SideMenuItem {
   Files = 'files-menu-item',
   Settings = 'settings-menu-item',
   Plugins = 'plugins-menu-item',
+  Studio = "nocode-studio-item"
 }
 
 export interface MenuState {
